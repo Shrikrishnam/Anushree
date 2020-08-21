@@ -1,0 +1,48 @@
+
+<div class="container-fluid">
+        <div *ngIf="viewss">
+        <div  *ngFor="let y of viewss" >
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="h1">Sl NO</th> 
+                        <th class="h2">Name</th>
+                        <th class="h3">Address</th>
+                        <th class="h4">City</th>
+                        <th class="h5">Package</th>
+                        <th class="h6">Trainer Preference</th>
+                        <th class="h7">Phone</th>
+                        </tr>
+                </thead>
+      
+                <tbody>
+                    <tr>
+                        <td>{{y.id}}</td>
+                        <td>{{y.firstname}}</td>
+                        <td>{{y.streetaddress}}</td>
+                        <td>{{y.city}}</td>
+                        <td>{{y.packages}}</td>
+                        <td>{{y.trainerpreference}}</td>
+                        <td>{{y.phonenumber}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    <button class="btn btn-primary" (click)="editEmployee()">Edit</button>
+    <span *ngIf="confirmDelete">
+        <span>Are you sure you want to delete?</span>
+        <button class="btn btn-danger" (click)="deleteEmployee(y.id)">Yes</button>
+        <button class="btn btn-primary" (click)="confirmDelete=false">No</button>
+        </span>
+        <button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">Delete</button>
+        </div>
+    </div>
+    
+<div [hidden]="viewss">
+    <div class="loader"></div><h4>Loading . . . Please Wait</h4>
+</div>
+</div>
+
+

@@ -1,0 +1,88 @@
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <label>Contact-us</label>
+    <div class="form-group">
+        <label for="exampleInputfirstname">First Name</label>
+        <input type="text" class="form-control" formControlName="firstname" placeholder="First Name">
+        <small class="text-danger"
+            *ngIf="contactForm.controls.firstname.touched && contactForm.controls.firstname.errors?.required">
+            Please enter first name.!
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.firstname.touched && contactForm.controls.firstname.errors?.pattern">
+            Firstname must contain only alphabets.
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.firstname.touched && contactForm.controls.firstname.errors?.minlength">
+            Firstname must be atleast 3 characters long.
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputlastname">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+        <small class="text-danger"
+            *ngIf="contactForm.controls.lastname.touched && contactForm.controls.lastname.errors?.required">
+            Please enter last name.!
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.lastname.touched && contactForm.controls.lastname.errors?.pattern">
+            Lastname must contain only alphabets.
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.lastname.touched && contactForm.controls.lastname.errors?.minlength">
+            Lastname must be atleast 3 characters long.
+        </small>
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputphonenumber">Phone Number</label>
+        <input type="text" class="form-control" formControlName="phonenumber" placeholder="Phone Number">
+        <small class="text-danger"
+            *ngIf="contactForm.controls.phonenumber.touched && contactForm.controls.phonenumber.errors?.required">
+            Please enter phone number.!
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.phonenumber.touched && contactForm.controls.phonenumber.errors?.pattern">
+            Phonenumber must contain only numbers.
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.phonenumber.touched && contactForm.controls.phonenumber.errors?.minlength">
+            Phonenumber must be  10 characters long.
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.phonenumber.touched && contactForm.controls.phonenumber.errors?.maxlength">
+            Phonenumber must be  10 characters long.
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputemail">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Email">
+        <small class="text-danger"
+            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.required">
+            Please enter email.!
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.pattern">
+            Enter the valid email .!
+        </small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputmessage">Message</label>
+        <textarea type="text" class="form-control" formControlName="message" placeholder="Message"></textarea>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.message.touched && contactForm.controls.message.errors?.required">
+            Please enter message.!
+        </small>
+        <small class="text-danger"
+            *ngIf="contactForm.controls.message.touched && contactForm.controls.message.errors?.minlength">
+            Message must be atleast 3 characters long..!
+        </small>
+    </div>
+    <button type="submit" >Submit</button>
+</form>
+
+
